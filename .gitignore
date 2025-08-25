@@ -1,0 +1,35 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VSCode
+.vscode/
+.history/
+
+# Python app
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Prometheus, Loki, Grafana, Alloy data volumes
+prom_data/
+loki_data/
+grafana_data/
+alloy_data/
+
+# Node (if you add frontend later)
+node_modules/
+npm-debug.log*
+pnpm-lock.yaml
+yarn.lock
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
