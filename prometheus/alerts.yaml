@@ -1,0 +1,11 @@
+groups:
+- name: toybox
+  rules:
+  - alert: AppHighErrorRate
+    expr: rate(app_requests_total{status=~"5.."}[1m]) / rate(app_requests_total[1m]) > 0.2
+    for: 1m
+    labels:
+      severity: page
+    annotations:
+      summary: "App error rate > 20%"
+      description: "Investigate logs in Loki and latency in Grafana."
