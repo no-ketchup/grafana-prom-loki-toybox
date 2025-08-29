@@ -1,0 +1,32 @@
+{
+  "id": null,
+  "title": "Toybox App",
+  "uid": "toybox-app",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Request rate",
+      "targets": [
+        {
+          "expr": "rate(app_requests_total[1m])",
+          "legendFormat": "{{route}} {{status}}"
+        }
+      ],
+      "gridPos": {"x":0,"y":0,"w":12,"h":8}
+    },
+    {
+      "type": "timeseries",
+      "title": "Latency p95",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(app_request_seconds_bucket[5m])) by (le, route))",
+          "legendFormat": "{{route}} p95"
+        }
+      ],
+      "gridPos": {"x":0,"y":8,"w":12,"h":8}
+    }
+  ]
+}
